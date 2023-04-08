@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,34 +14,30 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using Newtonsoft.Json;
-using System.Security.Policy;
 
-
-namespace DietPlanner
-{ 
+namespace DietPlanner.Pages
+{
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for RecipePage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RecipePage : Page
     {
         private readonly HttpClient _client = new HttpClient();
         private readonly string _apiKey = "f409ca598a494057a1eec3804ea58e13";
-
-        public MainWindow()
+        public RecipePage()
         {
+
             InitializeComponent();
         }
-
-        private async void SearchButton_Click(object sender, RoutedEventArgs e)
+        
+        private async void But_Search_Click(object sender, RoutedEventArgs e)
         {
-            names.Text = string.Empty;
-            var url = $"https://api.spoonacular.com/recipes/findByIngredients?apiKey={_apiKey}&ingredients={IngredientsTextBox}";
-            
+
+            show_recipe.Text = string.Empty;
+            var url = $"https://api.spoonacular.com/recipes/findByIngredients?apiKey={_apiKey}&ingredients={Search.Text}";
+
             try
-            { 
+            {
                 var response = await _client.GetAsync(url);
                 response.EnsureSuccessStatusCode();
 
@@ -48,22 +46,29 @@ namespace DietPlanner
 
                 //Console.WriteLine(data);
 
-          
+
                 foreach (var missedIngredient in data)
                 {
                     string tmp = missedIngredient.title;
-                    
-                    names.Text += tmp + "\n";
-                    
+
+                    show_recipe.Text += tmp + "\n";
+
                 }
-               
+
             }
             catch (HttpRequestException ex)
             {
                 Console.WriteLine($"Error: {ex.Message}");
             }
+
+        }
+
+        private void Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
             
         }
     }
+
+        
 }
 
