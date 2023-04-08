@@ -206,6 +206,34 @@
 
                 </Grid>
             </Border>
+            <Grid
+                 Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button
+                    Content="Previous"
+                    x:Name="PreviousDate"
+                    Grid.Column="0"
+                    FontSize="15"
+                    />
+                <TextBlock
+                    x:Name="TodayDate"
+                    TextAlignment="Center"
+                    FontSize="15"
+                    Grid.Column="1"
+                    Foreground="{DynamicResource PrimaryBackgroundColor}"
+                    FontWeight="DemiBold"
+                    Text="TodayDate" Margin="5"/>
+                <Button
+                    Content="Next"
+                    x:Name="NextDate"
+                    Grid.Column="2"
+                    FontSize="15"
+                    />
+            </Grid>
             <Border
                     Margin="10"
                     Background="AntiqueWhite"
