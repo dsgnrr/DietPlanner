@@ -90,15 +90,23 @@ namespace DietPlanner.AppWindows
             if (WeightTextBox.Text.Trim() != String.Empty && isValid)
             {
                 weightError.Visibility = Visibility.Hidden;
-
                 user.Weight = double.Parse(WeightTextBox.Text, CultureInfo.InvariantCulture);
-                if (u_weight1.IsChecked == true)
-                    user.UnitOfWeight = 1;
-                else user.UnitOfWeight = 2;
+                if (user.Weight <= 200)
+                {
+                    if (u_weight1.IsChecked == true)
+                        user.UnitOfWeight = 1;
+                    else user.UnitOfWeight = 2;
 
-                stackPanels[pagePosition].Visibility = Visibility.Collapsed;
-                pagePosition++;
-                stackPanels[pagePosition].Visibility = Visibility.Visible;
+                    stackPanels[pagePosition].Visibility = Visibility.Collapsed;
+                    pagePosition++;
+                    stackPanels[pagePosition].Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    WeightTextBox.Clear();
+                    weightError.Text = "Incorrect weight";
+                    weightError.Visibility = Visibility.Visible;
+                }
             }
             else
             {
@@ -116,13 +124,22 @@ namespace DietPlanner.AppWindows
                 heightError.Visibility = Visibility.Hidden;
 
                 user.Height = double.Parse(HeightTextBox.Text, CultureInfo.InvariantCulture);
-                if (u_height1.IsChecked == true)
-                    user.UnitOfHeight = 1;
-                else user.UnitOfHeight = 2;
+                if (user.Height <= 2.6)
+                {
+                    if (u_height1.IsChecked == true)
+                        user.UnitOfHeight = 1;
+                    else user.UnitOfHeight = 2;
 
-                stackPanels[pagePosition].Visibility = Visibility.Collapsed;
-                pagePosition++;
-                stackPanels[pagePosition].Visibility = Visibility.Visible;
+                    stackPanels[pagePosition].Visibility = Visibility.Collapsed;
+                    pagePosition++;
+                    stackPanels[pagePosition].Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    WeightTextBox.Clear();
+                    weightError.Text = "Incorrect height";
+                    weightError.Visibility = Visibility.Visible;
+                }
             }
             else
             {
