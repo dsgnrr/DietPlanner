@@ -23,17 +23,33 @@
             <Border Margin="-5"
                     CornerRadius="7 7 0 0"
                     Background="{DynamicResource LightBlack}">
-                <StackPanel HorizontalAlignment="Right"
-                        Orientation="Horizontal">
-                    <Button
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="1"
+                        Text="DIET PLANNER"
+                        Foreground="AntiqueWhite"
+                        TextAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontWeight="DemiBold"/>
+                    <StackPanel HorizontalAlignment="Right"
+                        Orientation="Horizontal"
+                                Grid.Column="2">
+                        <Button
                     Style="{DynamicResource MinimizeButton}"
                         x:Name="minimizeButton"
                         Click="minimizeButton_Click"/>
-                    <Button
+                        <Button
                     Style="{DynamicResource CloseButton}"
                         x:Name="closeButton"
                         Click="closeButton_Click"/>
-                </StackPanel>
+                    </StackPanel>
+                </Grid>
+                
             </Border>
             
             <!--Content-->

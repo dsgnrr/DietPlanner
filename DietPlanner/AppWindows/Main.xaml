@@ -1,0 +1,91 @@
+﻿<Window x:Class="DietPlanner.AppWindows.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DietPlanner.AppWindows"
+        mc:Ignorable="d"
+        Title="Main" Height="450" Width="600"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        Background="{x:Null}"
+        BorderThickness="0"
+        AllowsTransparency="True">
+    <Border x:Name="WindowStateBorder" Background="{DynamicResource RoyalBlue}"
+            MouseDown="WindowStateBorder_MouseDown"
+            CornerRadius="8">
+        <Grid  Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.03*"/>
+                <RowDefinition/>
+                <RowDefinition Height="0.1*"/>
+            </Grid.RowDefinitions>
+            <!--WindowState-->
+            <Border Margin="-5"
+                    CornerRadius="7 7 0 0"
+                    Background="{DynamicResource LightBlack}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="1"
+                        Text="DIET PLANNER"
+                        Foreground="AntiqueWhite"
+                        TextAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontWeight="DemiBold"/>
+                    <StackPanel HorizontalAlignment="Right"
+                        Orientation="Horizontal"
+                                Grid.Column="2">
+                        <Button
+                    Style="{DynamicResource MinimizeButton}"
+                        x:Name="minimizeButton"
+                        Click="minimizeButton_Click"/>
+                        <Button
+                    Style="{DynamicResource CloseButton}"
+                        x:Name="closeButton"
+                        Click="closeButton_Click"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Frame
+                x:Name="NavigateFrame"
+                NavigationUIVisibility="Hidden"
+                Grid.Row="1"
+                Margin="-5 5 -5 0"
+                Background="{DynamicResource PrimaryBackgroundColor}"/>
+            <Border
+                Grid.Row="2"
+                Background="{DynamicResource LightBlack}"
+                Margin="-5 0 -5 -5"
+                CornerRadius="0 0 7 7">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <RadioButton Content="Daily Statistics"
+                                 x:Name="StatisticButton"
+                                 Grid.Column="0"
+                                 Click="StatisticButton_Click"/>
+                    <RadioButton Content="Progress"
+                                 x:Name="ProgressButton"
+                                 Grid.Column="1"
+                                 Click="ProgressButton_Click"/>
+                    <RadioButton Content="Diets"
+                                 x:Name="DietsButton"
+                                 Grid.Column="2"
+                                 Click="DietsButton_Click"/>
+                </Grid>
+            </Border>
+            
+                
+            
+        </Grid>
+    </Border>
+</Window>
