@@ -119,7 +119,7 @@
                             Background="{DynamicResource Honeydew}"
                             BorderBrush="{DynamicResource LightBlack}"
                             CornerRadius="5"
-                            BorderThickness="0 0 0 2">
+                            BorderThickness="0 0 0 3">
                         <ContentPresenter
                                       Margin="{TemplateBinding Padding}"
                                       Content="{TemplateBinding Content}"
@@ -128,7 +128,7 @@
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="PART_Border" Property="BorderBrush" Value="{DynamicResource ResourceKey=PrimaryBackgroundColor}"/>
+                            <Setter TargetName="PART_Border" Property="BorderBrush" Value="{DynamicResource ResourceKey=RoyalBlue}"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="PART_Border" Property="Background" Value="White"/>

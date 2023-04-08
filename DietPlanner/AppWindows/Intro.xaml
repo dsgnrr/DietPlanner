@@ -107,9 +107,9 @@
                     TextAlignment="Center"
                     TextWrapping="Wrap"
                     FontSize="22"
-                    Foreground="{DynamicResource LightBlack}"
-                             x:Name="gender1"/>
+                    Foreground="{DynamicResource LightBlack}"/>
                         <Button
+                             x:Name="gender1"
                             Click="genderSelector_Click"
                     Style="{DynamicResource MaleButtonStyle}">
                             <Button.Content>
@@ -137,7 +137,7 @@
                     <!--Weight-->
                     <StackPanel
                      x:Name="WeightPanel"
-                    Visibility="Collapsed"
+                        Visibility="Collapsed"
                     VerticalAlignment="Center">
                         <TextBlock
                     Text="Enter your current weight"
@@ -149,12 +149,23 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition/>
+                                <RowDefinition/>
                             </Grid.RowDefinitions>
                             <TextBox
                         x:Name="WeightTextBox"
                         Style="{DynamicResource DefaultTextBox}"/>
+                            
+                            <!--ErrorText-->
+                            <TextBlock
+                                Grid.Row="1"
+                                Text="Test error"
+                                TextAlignment="Center"
+                                Foreground="DarkRed"
+                                x:Name="weightError"
+                                Visibility="Hidden"/>
+
                             <Button
-                            Grid.Row="1"
+                            Grid.Row="2"
                             Margin="30 5 30 0"
                                 Click="selectWeight_Click"
                             Style="{DynamicResource DefaultButton}">
@@ -170,8 +181,11 @@
                                 HorizontalAlignment="Center">
                             <RadioButton
                           Style="{DynamicResource RadioButton}"
+                                x:Name="u_weight1"
+                                IsChecked="True"
                            Content="kg."/>
                             <RadioButton
+                                  x:Name="u_weight2"
                           Style="{DynamicResource RadioButton}"
                            Content="lb."/>
                         </StackPanel>
@@ -191,13 +205,24 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition/>
+                                <RowDefinition/>
                             </Grid.RowDefinitions>
                             <TextBox
                         x:Name="HeightTextBox"
                         Style="{DynamicResource DefaultTextBox}"/>
+
+                            <!--ErrorText-->
+                            <TextBlock
+                                Grid.Row="1"
+                                Text="Test error"
+                                TextAlignment="Center"
+                                Foreground="DarkRed"
+                                x:Name="heightError"
+                                Visibility="Hidden"/>
+
                             <Button
                                 Click="selectHeight_Click"
-                            Grid.Row="1"
+                            Grid.Row="2"
                             Margin="30 5 30 0"
                             Style="{DynamicResource DefaultButton}">
                                 <Button.Content>
@@ -212,18 +237,22 @@
                         <StackPanel Orientation="Horizontal"
                                 HorizontalAlignment="Center">
                             <RadioButton
-                          Style="{DynamicResource RadioButton}"
-                           Content="ft/in"/>
+                                IsChecked="True"
+                                x:Name="u_height1"
+                                Style="{DynamicResource RadioButton}"
+                                 Content="cm."/>
                             <RadioButton
-                          Style="{DynamicResource RadioButton}"
-                           Content="cm."/>
+                                Style="{DynamicResource RadioButton}"
+                                x:Name="u_height2"
+                                Content="ft/in"
+                          />
                         </StackPanel>
                     </StackPanel>
                     <!--BirthDate-->
                     <StackPanel
-                    x:Name="BirthDatePanel"
+                        x:Name="BirthDatePanel"
                         Visibility="Collapsed"
-                    VerticalAlignment="Center">
+                        VerticalAlignment="Center">
                         <TextBlock
                         Text="Enter your date of birth"
                         TextAlignment="Center"
@@ -239,27 +268,65 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
                             </Grid.RowDefinitions>
                             <TextBox
                             x:Name="DayTextBox"
+                                MaxLength="2"
                             Style="{DynamicResource DefaultTextBox}"
-                            Margin="10 0 10 0"
-                            Text="DD"/>
+                            Margin="10 0 10 0"/>
                             <TextBox
                             x:Name="MounthTextBox"
                             Grid.Column="1"
-                            Text="MM"
+                                 MaxLength="2"
                             Margin="10 0 10 0"
                             Style="{DynamicResource DefaultTextBox}"/>
                             <TextBox
                             x:Name="YearTextBox"
+                                 MaxLength="4"
                             Grid.Column="2"
-                            Text="YYYY"
                             Style="{DynamicResource DefaultTextBox}"
                             Margin="10 0 10 0"/>
+                            
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontSize="8"
+                                Text="day"
+                                TextAlignment="Center"
+                                Foreground="{DynamicResource LightBlack}"/>
+
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                FontSize="8"
+                                Text="mounth"
+                                TextAlignment="Center"
+                                Foreground="{DynamicResource LightBlack}"/>
+
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                FontSize="8"
+                                Text="year"
+                                TextAlignment="Center"
+                                Foreground="{DynamicResource LightBlack}"/>
+
+                            <TextBlock
+                                Grid.Row="2"
+                                Grid.ColumnSpan="3"
+                                Text="Test error"
+                                TextAlignment="Center"
+                                Foreground="DarkRed"
+                                x:Name="birthDateError"
+                                Visibility="Hidden"/>
+                            
+                            
                             <Button
+                                Click="selectBirthDate_Click"
                             Grid.ColumnSpan="3"
-                            Grid.Row="1"
+                            Grid.Row="3"
                             Style="{DynamicResource DefaultButton}"
                             Margin="100 10 100 0">
                                 <Button.Content>

@@ -29,7 +29,7 @@
                         <Trigger Property="IsFocused" Value="true">
                             <Setter Property="BorderBrush" 
                                     TargetName="border" 
-                                    Value="{DynamicResource ResourceKey=PrimaryBackgroundColor}"/>
+                                    Value="{DynamicResource ResourceKey=RoyalBlue}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
