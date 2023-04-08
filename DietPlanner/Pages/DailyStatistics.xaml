@@ -7,12 +7,439 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="600"
       Title="DailyStatistics">
+    <ScrollViewer>
+        <StackPanel Background="LightGray">
+            <!--DailySatistics-->
+            <Border
+            Grid.Row="0"
+            Background="{DynamicResource PrimaryBackgroundColor}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
 
-    <Grid Background="AntiqueWhite">
-        <TextBlock
-            Text="Daily Statistics"
-            Foreground="{DynamicResource PrimaryBackgroundColor}"
-            FontSize="50"
-            TextAlignment="Center"/>
-    </Grid>
+                    <!--EatenInfo-->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                        x:Name="EatenInfo"
+                        Grid.Row="0"
+                        Text="0"
+                        FontSize="40"
+                        TextAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="AntiqueWhite"
+                        Margin="0 35 0 0"/>
+                        <Border
+                        Grid.Row="1"
+                        Background="{DynamicResource SecundaryBackgroundColor}"
+                        CornerRadius="8"
+                        Margin="10 0 10 20">
+                            <TextBlock
+                            Grid.Row="1"
+                            Text="EATEN"
+                            FontSize="15"
+                            TextAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="AntiqueWhite"/>
+                        </Border>
+                    </Grid>
+
+                    <!--left to eat-->
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                        x:Name="kcalLeftInfo"
+                        Grid.Row="0"
+                        Text="0"
+                        FontSize="40"
+                        TextAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="AntiqueWhite"/>
+                        <Border
+                        Grid.Row="1"
+                        Background="{DynamicResource SecundaryBackgroundColor}"
+                        Margin="5"
+                        CornerRadius="8">
+                            <TextBlock
+                        Text="KCAL LEFT"
+                        FontWeight="DemiBold"
+                        FontSize="15"
+                        TextAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="AntiqueWhite"/>
+                        </Border>
+                        <ProgressBar Grid.Row="2"
+                                Style="{DynamicResource CustomProgressBarStyle}"
+                                 Margin="10"
+                                 Value="10"/>
+
+                    </Grid>
+
+                    <!--CONSUMPTION-->
+                    <Grid Grid.Column="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                        Grid.Row="0"
+                        Text="0"
+                        FontSize="40"
+                        TextAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="AntiqueWhite"
+                        Margin="0 35 0 0"/>
+
+                        <Border
+                        Grid.Row="1"
+                        Background="{DynamicResource SecundaryBackgroundColor}"
+                        CornerRadius="8"
+                        Margin="10 0 10 20">
+                            <TextBlock
+                            Text="CONSUMPTION"
+                            FontSize="15"
+                            TextAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="AntiqueWhite"
+                            />
+                        </Border>
+                    </Grid>
+
+                </Grid>
+            </Border>
+            <!--DailyStatisticsPt2-->
+            <Border
+                    Margin="10"
+                    Background="AntiqueWhite"
+                    CornerRadius="8">
+                <Border.Effect>
+                    <DropShadowEffect
+                    ShadowDepth="6"
+                    Opacity="0.3"
+                    BlurRadius="8"/>
+                </Border.Effect>
+                <Grid Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                Grid.Column="1"
+                TextAlignment="Center"
+                FontSize="20"
+                Foreground="{DynamicResource PrimaryBackgroundColor}"
+                FontWeight="DemiBold"
+                Text="Statistics"/>
+
+                    <TextBlock
+                Grid.Column="0"
+                Grid.Row="1"
+                Text="Carbohydrates "
+                TextAlignment="Center"
+                Foreground="{DynamicResource PrimaryBackgroundColor}"
+                FontWeight="DemiBold"
+                FontSize="20"/>
+
+                    <TextBlock
+                Grid.Column="1"
+                Grid.Row="1"
+                Text="Proteins "
+                TextAlignment="Center"
+                Foreground="{DynamicResource PrimaryBackgroundColor}"
+                FontWeight="DemiBold"
+                FontSize="20"/>
+
+                    <TextBlock
+                Grid.Column="2"
+                Grid.Row="1"
+                Text="Fats"
+                TextAlignment="Center"
+                Foreground="{DynamicResource PrimaryBackgroundColor}"
+                FontWeight="DemiBold"
+                FontSize="20"/>
+
+                    <TextBlock
+                x:Name="CarbohydratesInfo"
+                Grid.Column="0"
+                Grid.Row="2"
+                Text="0/? g"
+                TextAlignment="Center"
+                Foreground="{DynamicResource PrimaryBackgroundColor}"
+                FontWeight="DemiBold"
+                FontSize="20"/>
+
+                    <TextBlock
+                x:Name="ProteinsInfo"
+                Grid.Column="1"
+                Grid.Row="2"
+                Text="0/? g"
+                TextAlignment="Center"
+                Foreground="{DynamicResource PrimaryBackgroundColor}"
+                FontWeight="DemiBold"
+                FontSize="20"/>
+
+                    <TextBlock
+                x:Name="FatsInfo"
+                Grid.Column="2"
+                Grid.Row="2"
+                Text="0/? g"
+                TextAlignment="Center"
+                Foreground="{DynamicResource PrimaryBackgroundColor}"
+                FontWeight="DemiBold"
+                FontSize="20"/>
+
+                </Grid>
+            </Border>
+            <Border
+                    Margin="10"
+                    Background="AntiqueWhite"
+                    CornerRadius="8">
+                <Border.Effect>
+                    <DropShadowEffect
+                    ShadowDepth="6"
+                    Opacity="0.3"
+                    BlurRadius="8"/>
+                </Border.Effect>
+                <StackPanel>
+                    <TextBlock
+                        x:Name="WaterInfo"
+                        FontSize="20"
+                        Foreground="{DynamicResource PrimaryBackgroundColor}"
+                        FontWeight="DemiBold"
+                        Text="Water: 0 liters" Margin="5"/>
+                    <WrapPanel Grid.Row="2">
+                        <Button
+                            Margin="5"
+                            Height="40"
+                            Width="25"
+                            Background="{DynamicResource RoyalBlue}"/>
+                        <Button
+                            Margin="5"
+                            Height="40"
+                            Width="25"
+                            Background="{DynamicResource RoyalBlue}"/>
+                        <Button
+                            Margin="5"
+                            Height="40"
+                            Width="25"
+                            Background="{DynamicResource RoyalBlue}"/>
+                        <Button
+                            Margin="5"
+                            Height="40"
+                            Width="25"
+                            Background="{DynamicResource RoyalBlue}"/>
+                        <Button
+                            Margin="5"
+                            Height="40"
+                            Width="25"
+                            Background="{DynamicResource RoyalBlue}"/>
+                    </WrapPanel>
+                </StackPanel>
+
+            </Border>
+
+            <Border
+                    Margin="10"
+                    Background="AntiqueWhite"
+                    CornerRadius="8">
+                <Border.Effect>
+                    <DropShadowEffect
+                    ShadowDepth="6"
+                    Opacity="0.3"
+                    BlurRadius="8"/>
+                </Border.Effect>
+                <!--Breakfast-->
+                    <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Border
+                        Grid.Column="0"
+                        Margin="10"
+                        Width="50"
+                        Height="50"
+                        Background="{DynamicResource LightBlack}"/>
+                    <StackPanel Margin="10"
+                                Grid.Column="1">
+                        <TextBlock
+                        FontSize="20"
+                        Foreground="{DynamicResource PrimaryBackgroundColor}"
+                        FontWeight="DemiBold"
+                        Text="Breakfast" Margin="5"/>
+                        <TextBlock
+                            x:Name="BreakfastInfo"
+                        FontSize="15"
+                        Foreground="{DynamicResource PrimaryBackgroundColor}"
+                        FontWeight="DemiBold"
+                        Text="Recommend" Margin="5"/>
+                    </StackPanel>
+                    <Button
+                        HorizontalAlignment="Right"
+                        Grid.Column="2"
+                            Margin="20"
+                            Height="40"
+                            Width="25"
+                            Background="{DynamicResource PrimaryBackgroundColor}"/>
+                </Grid>
+                   
+            </Border>
+            <!--Dinner-->
+            <Border
+                    Margin="10"
+                    Background="AntiqueWhite"
+                    CornerRadius="8">
+                <Border.Effect>
+                    <DropShadowEffect
+                    ShadowDepth="6"
+                    Opacity="0.3"
+                    BlurRadius="8"/>
+                </Border.Effect>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Border
+                        Grid.Column="0"
+                        Margin="10"
+                        Width="50"
+                        Height="50"
+                        Background="{DynamicResource LightBlack}"/>
+                    <StackPanel Margin="10"
+                                Grid.Column="1">
+                        <TextBlock
+                        FontSize="20"
+                        Foreground="{DynamicResource PrimaryBackgroundColor}"
+                        FontWeight="DemiBold"
+                        Text="Lunch" Margin="5"/>
+                        <TextBlock
+                             x:Name="LunchInfo"
+                        FontSize="15"
+                        Foreground="{DynamicResource PrimaryBackgroundColor}"
+                        FontWeight="DemiBold"
+                        Text="Recommend" Margin="5"/>
+                    </StackPanel>
+                    <Button
+                        HorizontalAlignment="Right"
+                        Grid.Column="2"
+                            Margin="20"
+                            Height="40"
+                            Width="25"
+                            Background="{DynamicResource PrimaryBackgroundColor}"/>
+                </Grid>
+            </Border>
+
+            <Border
+                    Margin="10"
+                    Background="AntiqueWhite"
+                    CornerRadius="8">
+                <Border.Effect>
+                    <DropShadowEffect
+                    ShadowDepth="6"
+                    Opacity="0.3"
+                    BlurRadius="8"/>
+                </Border.Effect>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Border
+                        Grid.Column="0"
+                        Margin="10"
+                        Width="50"
+                        Height="50"
+                        Background="{DynamicResource LightBlack}"/>
+                    <StackPanel Margin="10"
+                                Grid.Column="1">
+                        <TextBlock
+                        FontSize="20"
+                        Foreground="{DynamicResource PrimaryBackgroundColor}"
+                        FontWeight="DemiBold"
+                        Text="Dinner" Margin="5"/>
+                        <TextBlock
+                             x:Name="DinnerInfo"
+                        FontSize="15"
+                        Foreground="{DynamicResource PrimaryBackgroundColor}"
+                        FontWeight="DemiBold"
+                        Text="Recommend" Margin="5"/>
+                    </StackPanel>
+                    <Button
+                        HorizontalAlignment="Right"
+                        Grid.Column="2"
+                            Margin="20"
+                            Height="40"
+                            Width="25"
+                            Background="{DynamicResource PrimaryBackgroundColor}"/>
+                </Grid>
+            </Border>
+
+            <Border
+                    Margin="10"
+                    Background="AntiqueWhite"
+                    CornerRadius="8">
+                <Border.Effect>
+                    <DropShadowEffect
+                    ShadowDepth="6"
+                    Opacity="0.3"
+                    BlurRadius="8"/>
+                </Border.Effect>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Border
+                        Grid.Column="0"
+                        Margin="10"
+                        Width="50"
+                        Height="50"
+                        Background="{DynamicResource LightBlack}"/>
+                    <StackPanel Margin="10"
+                                Grid.Column="1">
+                        <TextBlock
+                        FontSize="20"
+                        Foreground="{DynamicResource PrimaryBackgroundColor}"
+                        FontWeight="DemiBold"
+                        Text="Snacks" Margin="5"/>
+                        <TextBlock
+                        FontSize="15"
+                        Foreground="{DynamicResource PrimaryBackgroundColor}"
+                        FontWeight="DemiBold"
+                             x:Name="ShcaksInfo"
+                        Text="Recommend" Margin="5"/>
+                    </StackPanel>
+                    <Button
+                        HorizontalAlignment="Right"
+                        Grid.Column="2"
+                            Margin="20"
+                            Height="40"
+                            Width="25"
+                            Background="{DynamicResource PrimaryBackgroundColor}"/>
+                </Grid>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+    
 </Page>

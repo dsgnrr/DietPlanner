@@ -36,4 +36,67 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="CustomProgressBarStyle2" TargetType="{x:Type ProgressBar}">
+        <Setter Property="Foreground" Value="#007ACC" />
+        <!-- Цвет переднего плана -->
+        <Setter Property="Background" Value="#D0D0D0" />
+        <!-- Цвет фона -->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ProgressBar}">
+                    <Grid x:Name="PART_Track" Background="{TemplateBinding Background}">
+                        <Rectangle x:Name="PART_Indicator" Fill="{TemplateBinding Foreground}" HorizontalAlignment="Left">
+                            <Rectangle.Clip>
+                                <RectangleGeometry Rect="{Binding ElementName=PART_Track, Path=ActualWidth}" />
+                            </Rectangle.Clip>
+                        </Rectangle>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Value" Value="0">
+                            <Setter TargetName="PART_Indicator" Property="Width" Value="0" />
+                        </Trigger>
+                        <Trigger Property="Value" Value="100">
+                            <Setter TargetName="PART_Indicator" Property="Width" Value="{Binding ActualWidth, ElementName=PART_Track}" />
+                        </Trigger>
+                        <Trigger Property="Value" Value="0">
+                            <Setter TargetName="PART_Indicator" Property="Width" Value="0" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!-- Стиль для ProgressBar -->
+    <Style x:Key="CustomProgressBarStyle" TargetType="{x:Type ProgressBar}">
+        <Setter Property="Foreground" Value="#007ACC" />
+        <!-- Цвет переднего плана -->
+        <Setter Property="Background" Value="#D0D0D0" />
+        <!-- Цвет фона -->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ProgressBar}">
+                    <Grid x:Name="PART_Track">
+                        <Rectangle Fill="{TemplateBinding Background}" />
+                        <Rectangle x:Name="PART_Indicator" Fill="{TemplateBinding Foreground}" Width="0" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Value" Value="0">
+                            <Setter TargetName="PART_Indicator" Property="Width" Value="0" />
+                        </Trigger>
+                        <Trigger Property="Value" Value="32767">
+                            <!-- Максимальное значение Int16 -->
+                            <Setter TargetName="PART_Indicator" Property="Width" Value="{Binding ActualWidth, ElementName=PART_Track}" />
+                        </Trigger>
+                        <Trigger Property="Value" Value="0">
+                            <!-- Минимальное значение Int32 -->
+                            <Setter TargetName="PART_Indicator" Property="Width" Value="0" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>
