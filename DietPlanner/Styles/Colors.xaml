@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#19FA4D"/>
+    <SolidColorBrush x:Key="LightBlack" Color="#1f1f1f"/>
+    <SolidColorBrush x:Key="Honeydew" Color="#F0FFF0"/>
+
+    <SolidColorBrush x:Key="RoyalBlue" Color="#4169E1"/>
+    <SolidColorBrush x:Key="CadetBlue" Color="#5F9EA0"/>
+    <SolidColorBrush x:Key="MidnightBlue" Color="#191970"/>
+
+    <SolidColorBrush x:Key="MediumOrchid" Color="#BA55D3"/>
+    <SolidColorBrush x:Key="MediumPurple" Color="#9370DB"/>
+    <SolidColorBrush x:Key="BlueViolet" Color="#8A2BE2"/>
+
+</ResourceDictionary>
