@@ -7,6 +7,65 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-       
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="243*"/>
+            <ColumnDefinition Width="157*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Width="150" HorizontalAlignment="Left">
+            <Label Content="Gender" x:Name="Gender" FontSize="20" Width="100" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
+            <Label Content="Goal" x:Name="Goal" FontSize="20" Width="100" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
+            <Label Content="Weight" x:Name="Weight" FontSize="20" Width="100" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
+            <Label Content="UnitOfWeight" x:Name="UnitOfWeight" FontSize="20" Width="150" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
+            <Label Content="Height" x:Name="Height" FontSize="20" Width="100" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
+            <Label Content="UnitOfHeight" x:Name="UnitOfHeight" FontSize="20" Width="150" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
+            <Label Content="Birthday" x:Name="Birthday" FontSize="20" Width="100" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
+        </StackPanel>
+        <StackPanel Width="150" Margin="325,0,11,0" >
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Male" Name="Male" Height="40" Width="50" Click="Male_Click"></Button>
+                <Button Content="Female" Name="Female" Height="40" Width="50" Click="Female_Click"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="One" Name="First" Height="40" Width="50" Click="First_Click"></Button>
+                <Button Content="Two" Name="Second" Height="40" Width="50" Click="Second_Click"></Button>
+                <Button Content="Three" Name="Third" Height="40" Width="50" Click="Third_Click"></Button>
+            </StackPanel>
+            <TextBox Text="Weight" x:Name="Weight_Text" FontSize="20" Width="100" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" TextChanged="Weight_Text_TextChanged"></TextBox>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="kg" Name="KG_w" Height="40" Width="50" Click="KG_w_Click"></Button>
+                <Button Content="ft/in" Name="FT_w" Height="40" Width="50" Click="FT_w_Click"></Button>
+            </StackPanel>
+            <TextBox Text="Height" x:Name="Height_Text" FontSize="20" Width="100" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" TextChanged="Height_Text_TextChanged"></TextBox>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="cm" Name="CM_h" Height="40" Width="50" Click="CM_h_Click"></Button>
+                <Button Content="ft/in" Name="FT_h" Height="40" Width="50" Click="FT_h_Click"></Button>
+            </StackPanel>
+            <StackPanel Height="50" Orientation="Horizontal">
+                <TextBox
+                            x:Name="DayTextBox"
+                                MaxLength="2"
+                            Style="{DynamicResource DefaultTextBox}"
+                            Margin="0 0 0 0"
+                    Width="30"
+                    />
+                <TextBox
+                            x:Name="MounthTextBox"
+                            Grid.Column="1"
+                                 MaxLength="2"
+                    Width="30"
+                            Margin="10 0 10 0"
+                            Style="{DynamicResource DefaultTextBox}"/>
+                <TextBox
+                            x:Name="YearTextBox"
+                                 MaxLength="4"
+                            Grid.Column="2"
+                    Width="30"
+                            Style="{DynamicResource DefaultTextBox}"
+                            Margin="10 0 10 0"/>
+
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
 
 </Window>

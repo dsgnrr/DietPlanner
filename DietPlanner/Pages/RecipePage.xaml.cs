@@ -33,7 +33,7 @@ namespace DietPlanner.Pages
         private async void But_Search_Click(object sender, RoutedEventArgs e)
         {
 
-            show_recipe.Text = string.Empty;
+           
             var url = $"https://api.spoonacular.com/recipes/findByIngredients?apiKey={_apiKey}&ingredients={Search.Text}";
 
             try
@@ -51,7 +51,14 @@ namespace DietPlanner.Pages
                 {
                     string tmp = missedIngredient.title;
 
-                    show_recipe.Text += tmp + "\n";
+                    //show_recipe.Text += tmp + "\n";
+                    Button button = new Button();
+
+                    // задаем текст кнопки
+                    button.Content = tmp;
+
+                    // добавляем кнопку на панель
+                    show_recipe.Children.Add(button);
 
                 }
 

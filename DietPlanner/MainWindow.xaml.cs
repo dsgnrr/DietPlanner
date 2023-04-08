@@ -16,7 +16,10 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using System.Security.Policy;
-
+using DietPlanner.Classes;
+using DietPlanner.Interfaces;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace DietPlanner
 { 
@@ -25,45 +28,83 @@ namespace DietPlanner
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly HttpClient _client = new HttpClient();
-        private readonly string _apiKey = "f409ca598a494057a1eec3804ea58e13";
-
+        User user;
+        private IFile file = new XmlFormat("UserConfig.xml");
         public MainWindow()
         {
             InitializeComponent();
+            user = file.Load<User>();
+
         }
 
-        private async void SearchButton_Click(object sender, RoutedEventArgs e)
+        private void Male_Click(object sender, RoutedEventArgs e)
         {
-            names.Text = string.Empty;
-            var url = $"https://api.spoonacular.com/recipes/findByIngredients?apiKey={_apiKey}&ingredients={IngredientsTextBox}";
-            
-            try
-            { 
-                var response = await _client.GetAsync(url);
-                response.EnsureSuccessStatusCode();
+            user.Gender = 1;
+        }
 
-                var content = await response.Content.ReadAsStringAsync();
-                dynamic data = JsonConvert.DeserializeObject<dynamic>(content);
+        private void Female_Click(object sender, RoutedEventArgs e)
+        {
+            user.Gender = 2;
+        }
 
-                //Console.WriteLine(data);
+        private void First_Click(object sender, RoutedEventArgs e)
+        {
+            user.Goal = 1;
+        }
 
-          
-                foreach (var missedIngredient in data)
-                {
-                    string tmp = missedIngredient.title;
-                    
-                    names.Text += tmp + "\n";
-                    
-                }
-               
-            }
-            catch (HttpRequestException ex)
+        private void Second_Click(object sender, RoutedEventArgs e)
+        {
+            user.Goal = 2;
+        }
+
+        private void Third_Click(object sender, RoutedEventArgs e)
+        {
+            user.Goal= 3;
+        }
+
+        private void Weight_Text_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Weight_Text.Text.Replace(',', '.');
+            bool isValid = Regex.IsMatch(Weight_Text.Text, @"^[0-9]*\.?[0-9]+$");
+            if (Weight_Text.Text.Trim() != String.Empty && isValid)
             {
-                Console.WriteLine($"Error: {ex.Message}");
+
+                user.Weight = double.Parse(Weight_Text.Text, CultureInfo.InvariantCulture);
             }
-            
+        }
+
+        private void Height_Text_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Height_Text.Text.Replace(',', '.');
+            bool isValid = Regex.IsMatch(Height_Text.Text, @"^[0-9]*\.?[0-9]+$");
+            if (Height_Text.Text.Trim() != String.Empty && isValid)
+            {
+
+                user.Weight = double.Parse(Height_Text.Text, CultureInfo.InvariantCulture);
+            }
+        }
+
+        private void KG_w_Click(object sender, RoutedEventArgs e)
+        {
+            user.UnitOfWeight = 1;
+        }
+
+        private void FT_w_Click(object sender, RoutedEventArgs e)
+        {
+            user.UnitOfWeight = 2;
+        }
+
+        private void CM_h_Click(object sender, RoutedEventArgs e)
+        {
+            user.UnitOfHeight = 1;
+        }
+
+        private void FT_h_Click(object sender, RoutedEventArgs e)
+        {
+            user.UnitOfHeight = 2;
         }
     }
+
+   
 }
 

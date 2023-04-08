@@ -15,7 +15,7 @@
             FontSize="50"
             TextAlignment="Center"/>
         <TextBox Name="Search" Width="250" Height="30" Margin="0 0 0 200" TextChanged="Search_TextChanged"></TextBox>
-        <TextBlock x:Name="show_recipe" Width="400" Height="250" VerticalAlignment="Bottom"></TextBlock>
+        <StackPanel x:Name="show_recipe" Width="400" Height="250" VerticalAlignment="Bottom"></StackPanel>
         <Button x:Name="But_Search" Width="30" Height="30" Margin="300 0 0 200" Click="But_Search_Click"></Button>
     </Grid>
 </Page>
