@@ -12,13 +12,36 @@
         Background="{x:Null}"
         BorderThickness="0"
         AllowsTransparency="True">
-    <Border Background="{DynamicResource PrimaryBackgroundColor}"
+    <Border x:Name="WindowStateBorder" Background="{DynamicResource RoyalBlue}"
+            MouseDown="WindowStateBorder_MouseDown"
             CornerRadius="8">
-        <Grid >
+        <Grid  Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.03*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Border Margin="-5"
+                    CornerRadius="7 7 0 0"
+                    Background="{DynamicResource LightBlack}">
+                <StackPanel HorizontalAlignment="Right"
+                        Orientation="Horizontal">
+                    <Button
+                    Style="{DynamicResource MinimizeButton}"
+                        x:Name="minimizeButton"
+                        Click="minimizeButton_Click"/>
+                    <Button
+                    Style="{DynamicResource CloseButton}"
+                        x:Name="closeButton"
+                        Click="closeButton_Click"/>
+                </StackPanel>
+            </Border>
+            
+            <!--Content-->
             <Border Background="AntiqueWhite"
                 Margin="60"
                 CornerRadius="8"
-                Padding="50">
+                Padding="50"
+                    Grid.Row="1">
                 <Border.Effect>
                     <DropShadowEffect
                     ShadowDepth="6"
@@ -38,7 +61,9 @@
                     FontSize="22"
                         Foreground="{DynamicResource LightBlack}"/>
                         <Button
-                        Style="{DynamicResource DefaultButton}">
+                        Style="{DynamicResource DefaultButton}"
+                            x:Name="goal1"
+                            Click="goalSelector_Click">
                             <Button.Content>
                                 <TextBlock
                             Text="Lose weight"
@@ -48,6 +73,8 @@
                             </Button.Content>
                         </Button>
                         <Button
+                             x:Name="goal2"
+                            Click="goalSelector_Click"
                         Style="{DynamicResource DefaultButton}">
                             <Button.Content>
                                 <TextBlock
@@ -58,6 +85,8 @@
                             </Button.Content>
                         </Button>
                         <Button
+                             x:Name="goal3"
+                            Click="goalSelector_Click"
                         Style="{DynamicResource DefaultButton}">
                             <Button.Content>
                                 <TextBlock
@@ -78,8 +107,10 @@
                     TextAlignment="Center"
                     TextWrapping="Wrap"
                     FontSize="22"
-                    Foreground="{DynamicResource LightBlack}"/>
+                    Foreground="{DynamicResource LightBlack}"
+                             x:Name="gender1"/>
                         <Button
+                            Click="genderSelector_Click"
                     Style="{DynamicResource MaleButtonStyle}">
                             <Button.Content>
                                 <TextBlock
@@ -89,8 +120,11 @@
                             FontWeight="DemiBold"/>
                             </Button.Content>
                         </Button>
+                        
                         <Button
-                    Style="{DynamicResource FemaleButtonStyle}">
+                    Style="{DynamicResource FemaleButtonStyle}"
+                            Click="genderSelector_Click"
+                             x:Name="gender2">
                             <Button.Content>
                                 <TextBlock
                             Text="Female"
@@ -122,6 +156,7 @@
                             <Button
                             Grid.Row="1"
                             Margin="30 5 30 0"
+                                Click="selectWeight_Click"
                             Style="{DynamicResource DefaultButton}">
                                 <Button.Content>
                                     <TextBlock
@@ -161,6 +196,7 @@
                         x:Name="HeightTextBox"
                         Style="{DynamicResource DefaultTextBox}"/>
                             <Button
+                                Click="selectHeight_Click"
                             Grid.Row="1"
                             Margin="30 5 30 0"
                             Style="{DynamicResource DefaultButton}">
@@ -185,7 +221,7 @@
                     </StackPanel>
                     <!--BirthDate-->
                     <StackPanel
-                    x:Name="BirthDataPanel"
+                    x:Name="BirthDatePanel"
                         Visibility="Collapsed"
                     VerticalAlignment="Center">
                         <TextBlock

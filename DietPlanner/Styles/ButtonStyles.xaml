@@ -105,6 +105,7 @@
         </Setter>
     </Style>
 
+    <!--RadioButton-->
     <Style TargetType="RadioButton" x:Key="RadioButton">
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="Background" Value="White"/>
@@ -141,4 +142,55 @@
         </Setter>
     </Style>
 
+    <Style TargetType="Button" x:Key="CloseButton">
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Margin" Value="5 1 5 1"/>
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="#FFD32F2F" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" 
+                            CornerRadius="15">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Top"
+                                          Margin="10 0 10 0"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#FFFC5D5D" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="#FFA83232" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="Button" x:Key="MinimizeButton">
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Margin" Value="5 1 5 1"/>
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="#DAA520" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" 
+                            CornerRadius="15">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Top"
+                                          Margin="10 0 10 0"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#F4A460" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="#8B4513" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

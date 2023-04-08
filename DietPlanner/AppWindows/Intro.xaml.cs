@@ -19,9 +19,64 @@ namespace DietPlanner.AppWindows
     /// </summary>
     public partial class Intro : Window
     {
+        private int pagePosition;
+        private StackPanel[] stackPanels;
         public Intro()
         {
             InitializeComponent();
+            LoadPages();
+
+        }
+        private void LoadPages()
+        {
+            pagePosition = 0;
+            stackPanels = new StackPanel[] { GoalPanel, GenderPanel, WeightPanel, HeightPanel, BirthDatePanel };
+            GoalPanel.Visibility = Visibility.Visible;
+        }
+        
+        #region WINDOW_EVENTS
+        private void minimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.WindowState == WindowState.Normal)
+                this.WindowState = WindowState.Minimized;
+        }
+
+        private void closeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void WindowStateBorder_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
+
+        #endregion
+
+        private void goalSelector_Click(object sender, RoutedEventArgs e)
+        {
+            stackPanels[pagePosition].Visibility = Visibility.Collapsed;
+            pagePosition++;
+            stackPanels[pagePosition].Visibility = Visibility.Visible;
+        }
+        private void genderSelector_Click(object sender, RoutedEventArgs e)
+        {
+            stackPanels[pagePosition].Visibility = Visibility.Collapsed;
+            pagePosition++;
+            stackPanels[pagePosition].Visibility = Visibility.Visible;
+        }
+        private void selectWeight_Click(object sender, RoutedEventArgs e)
+        {
+            stackPanels[pagePosition].Visibility = Visibility.Collapsed;
+            pagePosition++;
+            stackPanels[pagePosition].Visibility = Visibility.Visible;
+        }
+        private void selectHeight_Click(object sender, RoutedEventArgs e)
+        {
+            stackPanels[pagePosition].Visibility = Visibility.Collapsed;
+            pagePosition++;
+            //stackPanels[pagePosition].Visibility = Visibility.Visible;
         }
     }
 }
