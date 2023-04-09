@@ -23,6 +23,9 @@ namespace DietPlanner.AppWindows
         public Main()
         {
             InitializeComponent();
+            StatisticButton.IsChecked = true;
+            NavigateFrame.Content = null;
+            NavigateFrame.Navigate(new DailyStatistics());
         }
 
         #region WINDOW_EVENTS
