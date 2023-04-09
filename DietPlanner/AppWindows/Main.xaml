@@ -68,6 +68,7 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
+                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <RadioButton Content="Daily Statistics"
                                  x:Name="StatisticButton"
@@ -81,6 +82,10 @@
                                  x:Name="DietsButton"
                                  Grid.Column="2"
                                  Click="DietsButton_Click"/>
+                    <RadioButton Content="Profile"
+                                 x:Name="SettingsButton"
+                                 Grid.Column="3"
+                                 Click="SettingsButton_Click"/>
                 </Grid>
             </Border>
             

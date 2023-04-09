@@ -63,5 +63,11 @@ namespace DietPlanner.AppWindows
             NavigateFrame.Content = null;
             NavigateFrame.Navigate(new RecipePage());
         }
+
+        private void SettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigateFrame.Content = null;
+            NavigateFrame.Navigate(new Profile());
+        }
     }
 }
