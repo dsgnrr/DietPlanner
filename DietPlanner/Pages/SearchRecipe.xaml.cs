@@ -88,10 +88,13 @@ namespace DietPlanner.Pages
         }
         private async void openRecipe(object sender, RoutedEventArgs e)
         {
+            // Start Recipe Window
+            RecipeNavigate.Navigate(new RecipePage() { owner = this });
+
             Button button = (Button)sender;
             string buttonText = button.Content.ToString();
 
-            
+
             string apiKey = "bf72237be72d44549d0acc3588ce6dfb";
 
             using var client = new HttpClient();

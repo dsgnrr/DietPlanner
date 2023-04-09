@@ -75,6 +75,9 @@
             </Border>
         </StackPanel>
         <!--RecipePage-->
+        <Frame
+            NavigationUIVisibility="Hidden"
+            x:Name="RecipeNavigate"/>
     </Grid>
 
 

@@ -98,4 +98,20 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+
+    <PathGeometry x:Key="ClockIconGeometry">
+        <PathFigure StartPoint="7,1">
+            <LineSegment Point="7,15" />
+            <LineSegment Point="14,9" />
+        </PathFigure>
+        <PathFigure StartPoint="7,3">
+            <ArcSegment Point="7,5" Size="2,2" SweepDirection="Clockwise" IsLargeArc="False" />
+        </PathFigure>
+    </PathGeometry>
+
+
+
+
+
 </ResourceDictionary>
