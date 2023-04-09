@@ -60,7 +60,7 @@
                 Background="{DynamicResource PrimaryBackgroundColor}"/>
             <Border
                 Grid.Row="2"
-                Background="{DynamicResource LightBlack}"
+                Background="LightGray"
                 Margin="-5 0 -5 -5"
                 CornerRadius="0 0 7 7">
                 <Grid >
@@ -70,22 +70,62 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <RadioButton Content="Daily Statistics"
+                    <RadioButton
                                  x:Name="StatisticButton"
                                  Grid.Column="0"
-                                 Click="StatisticButton_Click"/>
-                    <RadioButton Content="Progress"
+                                 Click="StatisticButton_Click"
+                                 Style="{DynamicResource RadioButtonMenu}">
+                        <RadioButton.Content>
+                            <TextBlock
+                                TextAlignment="Center"
+                                Text="Daily Statistics"
+                                FontWeight="DemiBold"
+                                Foreground="{DynamicResource LightBlack}"
+                                />
+                        </RadioButton.Content>
+                    </RadioButton>
+                    <RadioButton
+                                 Style="{DynamicResource RadioButtonMenu}"
                                  x:Name="ProgressButton"
                                  Grid.Column="1"
-                                 Click="ProgressButton_Click"/>
-                    <RadioButton Content="Diets"
+                                 Click="ProgressButton_Click">
+                        <RadioButton.Content>
+                            <TextBlock
+                                TextAlignment="Center"
+                                Text="Progress"
+                                FontWeight="DemiBold"
+                                Foreground="{DynamicResource LightBlack}"
+                                />
+                        </RadioButton.Content>
+                    </RadioButton>
+                    <RadioButton
+                                 Style="{DynamicResource RadioButtonMenu}"
                                  x:Name="DietsButton"
                                  Grid.Column="2"
-                                 Click="DietsButton_Click"/>
-                    <RadioButton Content="Profile"
+                                 Click="DietsButton_Click">
+                        <RadioButton.Content>
+                            <TextBlock
+                                TextAlignment="Center"
+                                Text="Diets"
+                                FontWeight="DemiBold"
+                                Foreground="{DynamicResource LightBlack}"
+                                />
+                        </RadioButton.Content>
+                    </RadioButton>
+                    <RadioButton
+                                 Style="{DynamicResource RadioButtonMenu}"
                                  x:Name="SettingsButton"
                                  Grid.Column="3"
-                                 Click="SettingsButton_Click"/>
+                                 Click="SettingsButton_Click">
+                        <RadioButton.Content>
+                            <TextBlock
+                                TextAlignment="Center"
+                                Text="Profile"
+                                FontWeight="DemiBold"
+                                Foreground="{DynamicResource LightBlack}"
+                                />
+                        </RadioButton.Content>
+                    </RadioButton>
                 </Grid>
             </Border>
             
