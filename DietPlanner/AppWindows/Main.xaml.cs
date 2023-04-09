@@ -54,7 +54,8 @@ namespace DietPlanner.AppWindows
         private void ProgressButton_Click(object sender, RoutedEventArgs e)
         {
             NavigateFrame.Content = null;
-            NavigateFrame.Navigate(new Progress());
+            //ВРЕМЕННО
+            NavigateFrame.Navigate(new Eating());
         }
 
         private void DietsButton_Click(object sender, RoutedEventArgs e)
