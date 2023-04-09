@@ -46,7 +46,7 @@ namespace DietPlanner.Pages
     {
         private readonly HttpClient _client = new HttpClient();
 
-        private readonly string _apiKey = "bf72237be72d44549d0acc3588ce6dfb";
+        private readonly string _apiKey = "5330ed77c83a4ecf965e38cdb7b80ac3";
         public SearchRecipe()
         {
             InitializeComponent();
@@ -95,48 +95,11 @@ namespace DietPlanner.Pages
             string buttonText = button.Content.ToString();
 
 
-            string apiKey = "bf72237be72d44549d0acc3588ce6dfb";
 
-            using var client = new HttpClient();
-            var id = 673463; // замените на реальный идентификатор рецепта
-            var response = await client.GetAsync($"https://api.spoonacular.com/recipes/{id}/information?apiKey={apiKey}");
-            var content = await response.Content.ReadAsStringAsync();
-            var recipe = JObject.Parse(content);
-
-            MessageBox.Show($"Название: {recipe["title"]}");
-            MessageBox.Show($"Количество порций: {recipe["servings"]}");
-            MessageBox.Show($"Время приготовления: {recipe["readyInMinutes"]} минут");
-
-
-
-
-
-            string url = $"https://api.spoonacular.com/recipes/{id}/analyzedInstructions?apiKey={apiKey}";
-            using var _client = new HttpClient();
-
-            // Execute the API request and get the response as a JSON string
-            string json = await client.GetStringAsync(url);
-
-            // Deserialize the JSON string into an object of type List<RecipeInstructions>
-            List<RecipeInstructions> instructions = JsonConvert.DeserializeObject<List<RecipeInstructions>>(json);
-
-            // Display the recipe name and the instructions
-            //MessageBox.Show($"Instructions for {instructions[0].Name}:");
-            foreach (var step in instructions[0].Steps)
-            {
-                MessageBox.Show($"Step {step.Number}: {step.Steps}");
-                if (step.Ingredients != null && step.Ingredients.Count > 0)
-                {
-                    MessageBox.Show("Ingredients:");
-                    foreach (var ingredient in step.Ingredients)
-                    {
-                        MessageBox.Show($"- {ingredient.Name}");
-                    }
-                }
-            }
         }
     }
+}
 
         
-}
+
 

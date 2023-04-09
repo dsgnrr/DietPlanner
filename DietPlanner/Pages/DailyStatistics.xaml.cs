@@ -31,7 +31,7 @@ namespace DietPlanner.Pages
         }
         private async void KCals()
         {
-            string apiKey = "bf72237be72d44549d0acc3588ce6dfb";
+            string apiKey = "5330ed77c83a4ecf965e38cdb7b80ac3";
 
             
             string query = "chicken";
