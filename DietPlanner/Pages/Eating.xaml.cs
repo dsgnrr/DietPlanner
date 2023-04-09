@@ -85,7 +85,7 @@ namespace DietPlanner.Pages
             string apiKey = "bf72237be72d44549d0acc3588ce6dfb";
 
             var httpClient = new HttpClient();
-            string query = "apple";
+            string query = SearchFood.Text;
             var response = await httpClient.GetAsync($"https://api.spoonacular.com/food/products/search?apiKey={apiKey}&query={query}");
 
             var responseContent = await response.Content.ReadAsStringAsync();
@@ -118,17 +118,18 @@ namespace DietPlanner.Pages
             food.Calories = nutritionData.calories;
             food.Name = SearchFood.Text;
 
-            //CarbohydratesProgress.Value = calories;
+           
 
             string fatString = nutritionData.fat;
             food.Fats= Convert.ToInt32(Regex.Replace(fatString, @"[^\d]+", ""));
             int count_fats = 0;
             
-            
+
+
             string carbs = nutritionData.carbs;
             food.Carbohydrates = Convert.ToInt32(Regex.Replace(carbs, @"[^\d]+", ""));
             int count_carb = 0;
-            
+           
 
             string protein = nutritionData.protein;
             food.Proteins = Convert.ToInt32(Regex.Replace(protein, @"[^\d]+", ""));
@@ -140,17 +141,26 @@ namespace DietPlanner.Pages
                 count_fats += Foods[i].Fats;
             }
             FatsProgress.Value = count_fats;
+            FatsInfo.Text = count_fats + "g";
 
             for (int i = 0; i < Foods.Count; i++)
             {
                 count_carb += Foods[i].Carbohydrates;
             }
             CarbohydratesProgress.Value = count_carb;
+            CarbohydratesInfo.Text = count_carb + "g";
             for (int i = 0; i < Foods.Count; i++)
             {
                 count_prot += Foods[i].Proteins;
             }
             ProteinsProgress.Value = count_prot;
+            ProteinsInfo.Text = count_prot + "g";
+            int count_kcal = 0;
+            for (int i = 0; i < Foods.Count; i++)
+            {
+                count_kcal += Foods[i].Calories;
+            }
+            DailyConsumption.Text = count_kcal + "g";
         }
     }
 
