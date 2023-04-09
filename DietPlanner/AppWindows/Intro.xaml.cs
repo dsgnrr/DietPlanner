@@ -5,6 +5,7 @@ using NodaTime.Text;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -34,9 +35,18 @@ namespace DietPlanner.AppWindows
         }
         private void LoadPages()
         {
-            pagePosition = 0;
-            stackPanels = new StackPanel[] { GoalPanel, GenderPanel, WeightPanel, HeightPanel, BirthDatePanel };
-            GoalPanel.Visibility = Visibility.Visible;
+            if (File.Exists("UserConfig.xml"))
+            {
+                Main main = new Main();
+                this.Close();
+                main.ShowDialog();
+            }
+            else
+            {
+                pagePosition = 0;
+                stackPanels = new StackPanel[] { GoalPanel, GenderPanel, WeightPanel, HeightPanel, BirthDatePanel };
+                GoalPanel.Visibility = Visibility.Visible;
+            }
         }
         
         #region WINDOW_EVENTS

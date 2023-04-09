@@ -5,14 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DietPlanner.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="1000" d:DesignWidth="600"
+      d:DesignHeight="450" d:DesignWidth="600"
       Title="Profile"
       Background="AntiqueWhite">
     <ScrollViewer>
         <StackPanel>
             <!--Gender-->
-                <Border BorderBrush="{DynamicResource LightBlack}"
-                BorderThickness="0 0 0 2">
+            <Border BorderBrush="Gray"
+                BorderThickness="0 0 0 1">
                     <Grid Margin="5">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
@@ -57,8 +57,8 @@
                     </Grid>
                 </Border>
                 <!--Goal-->
-                <Border BorderBrush="{DynamicResource LightBlack}"
-                BorderThickness="0 0 0 2"
+                <Border BorderBrush="Gray"
+                BorderThickness="0 0 0 1"
                 Grid.Row="1">
                     <Grid Margin="5">
                         <Grid.ColumnDefinitions>
@@ -119,8 +119,8 @@
                     </Grid>
                 </Border>
                   <!--Weight-->
-                <Border BorderBrush="{DynamicResource LightBlack}"
-                BorderThickness="0 0 0 2"
+            <Border BorderBrush="Gray"
+                BorderThickness="0 0 0 1"
                 Grid.Row="2">
                     <Grid Margin="5">
                         <Grid.ColumnDefinitions>
@@ -183,8 +183,8 @@
                     </Grid>
                 </Border>
                     <!--Height-->
-                <Border BorderBrush="{DynamicResource LightBlack}"
-                BorderThickness="0 0 0 2"
+            <Border BorderBrush="Gray"
+                BorderThickness="0 0 0 1"
                 Grid.Row="2">
                 <Grid Margin="5">
                     <Grid.ColumnDefinitions>
