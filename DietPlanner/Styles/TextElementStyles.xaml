@@ -5,7 +5,6 @@
         <Setter Property="Foreground" Value="{DynamicResource LightBlack}"/>
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="TextAlignment" Value="Center"/>
-        <Setter Property="MaxLength" Value="10"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBoxBase}">
