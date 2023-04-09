@@ -122,16 +122,35 @@ namespace DietPlanner.Pages
 
             string fatString = nutritionData.fat;
             food.Fats= Convert.ToInt32(Regex.Replace(fatString, @"[^\d]+", ""));
-            FatsProgress.Value = food.Fats;
+            int count_fats = 0;
+            
             
             string carbs = nutritionData.carbs;
             food.Carbohydrates = Convert.ToInt32(Regex.Replace(carbs, @"[^\d]+", ""));
-            CarbohydratesProgress.Value = food.Carbohydrates;
+            int count_carb = 0;
+            
 
             string protein = nutritionData.protein;
             food.Proteins = Convert.ToInt32(Regex.Replace(protein, @"[^\d]+", ""));
-            ProteinsProgress.Value = food.Proteins;
+            int count_prot = 0;
+           
             Foods.Add(food);
+            for (int i = 0; i < Foods.Count; i++)
+            {
+                count_fats += Foods[i].Fats;
+            }
+            FatsProgress.Value = count_fats;
+
+            for (int i = 0; i < Foods.Count; i++)
+            {
+                count_carb += Foods[i].Carbohydrates;
+            }
+            CarbohydratesProgress.Value = count_carb;
+            for (int i = 0; i < Foods.Count; i++)
+            {
+                count_prot += Foods[i].Proteins;
+            }
+            ProteinsProgress.Value = count_prot;
         }
     }
 
