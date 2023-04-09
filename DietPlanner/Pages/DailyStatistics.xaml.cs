@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -26,10 +27,11 @@ namespace DietPlanner.Pages
         {
             InitializeComponent();
             KCals();
+            TodayDate.Text = DateTime.Now.ToShortDateString();
         }
         private async void KCals()
         {
-            string apiKey = "f409ca598a494057a1eec3804ea58e13";
+            string apiKey = "bf72237be72d44549d0acc3588ce6dfb";
 
             
             string query = "chicken";

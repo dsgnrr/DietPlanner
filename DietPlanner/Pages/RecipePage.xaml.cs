@@ -23,7 +23,7 @@ namespace DietPlanner.Pages
     public partial class RecipePage : Page
     {
         private readonly HttpClient _client = new HttpClient();
-        private readonly string _apiKey = "f409ca598a494057a1eec3804ea58e13";
+        private readonly string _apiKey = "bf72237be72d44549d0acc3588ce6dfb";
         public RecipePage()
         {
 

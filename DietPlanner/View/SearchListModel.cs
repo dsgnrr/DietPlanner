@@ -1,4 +1,5 @@
-﻿using DietPlanner.Pages;
+﻿using DietPlanner.Model;
+using DietPlanner.Pages;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

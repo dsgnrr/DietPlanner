@@ -47,7 +47,7 @@
                         Grid.Row="1"
                         Content="Search"
                         FontSize="15"
-                        Margin="5 5 5 10"/>
+                        Margin="5 5 5 10" Click="SearchButton_Click"/>
                 </Grid>
             </Border>
             <!--DailyStatistics-->
@@ -106,6 +106,7 @@
                 FontSize="20"/>
                         <ProgressBar
                         x:Name="CarbohydratesProgress"
+                            
                             Height="20"/>
                     </StackPanel>
                     <StackPanel Grid.Row="1"
