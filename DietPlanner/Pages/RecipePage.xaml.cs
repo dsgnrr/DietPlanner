@@ -24,6 +24,7 @@ namespace DietPlanner.Pages
     public partial class RecipePage : Page
     {
         public SearchRecipe owner;
+        public string id;
         public RecipePage()
         {
             InitializeComponent();
@@ -42,7 +43,6 @@ namespace DietPlanner.Pages
             string apiKey = "5330ed77c83a4ecf965e38cdb7b80ac3";
 
             using var client = new HttpClient();
-            var id = 715538; 
             var response = await client.GetAsync($"https://api.spoonacular.com/recipes/{id}/information?apiKey={apiKey}");
             var content = await response.Content.ReadAsStringAsync();
             var recipe = JObject.Parse(content);
