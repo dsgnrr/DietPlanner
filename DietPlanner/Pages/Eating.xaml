@@ -89,7 +89,7 @@
                 Foreground="{DynamicResource PrimaryBackgroundColor}"
                 FontWeight="DemiBold"
                 Text="0/? kcal"/>
-                        <!--DailyCosumptionProgress-->
+                    <!--DailyCosumptionProgress-->
                     <ProgressBar
                         Grid.Column="1"
                         Margin="5"
@@ -136,15 +136,15 @@
                             Height="20"
                         x:Name="FatsProgress"/>
                     </StackPanel>
-                   
 
-                  
-                    
-                  
 
-                   
 
-                   
+
+
+
+
+
+
 
                     <!--CarbohydratesInfo-->
                     <TextBlock
@@ -179,7 +179,7 @@
                 </Grid>
             </Border>
             <!--SearchResults-->
-            
+
             <Border
                     Margin="10"
                     Background="AntiqueWhite"
@@ -191,19 +191,21 @@
                     Opacity="0.3"
                     BlurRadius="8"/>
                 </Border.Effect>
+                <!--SearchPanel-->
                 <WrapPanel>
-                    <ItemsControl ItemsSource="{Binding Food}">
+                    <ItemsControl ItemsSource="{Binding Foods}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <Border
-                    Margin="10 10 -750 10"
-                    Background="{DynamicResource Honeydew}"
-                    CornerRadius="8">
+                                        Width="540"
+                                        Margin="10"
+                                        Background="{DynamicResource Honeydew}"
+                                        CornerRadius="8">
                                     <Border.Effect>
                                         <DropShadowEffect
-                    ShadowDepth="4"
-                    Opacity="0.3"
-                    BlurRadius="8"/>
+                                                ShadowDepth="4"
+                                                Opacity="0.3"
+                                                BlurRadius="8"/>
                                     </Border.Effect>
                                     <Grid >
                                         <Grid.ColumnDefinitions>
@@ -219,21 +221,20 @@
                                             <RowDefinition/>
                                         </Grid.RowDefinitions>
                                         <TextBlock
-                                 TextAlignment="Center"
-                                Grid.Column="0"
-                                Margin="5"
-                                FontSize="20"
-                                Foreground="{DynamicResource PrimaryBackgroundColor}"
-                                FontWeight="DemiBold"
-                                Text="{Binding Name}"
-                                SnapsToDevicePixels="True"/>
+                                            TextAlignment="Center"
+                                            Grid.Column="0"
+                                            Margin="5"
+                                            FontSize="15"
+                                            Foreground="{DynamicResource PrimaryBackgroundColor}"
+                                            FontWeight="DemiBold"
+                                            Text="{Binding Name}"/>
 
                                         <TextBlock
                                  TextAlignment="Center"
                                 Grid.Column="0"
                                 Margin="5"
                                 Grid.Row="1"
-                                FontSize="20"
+                                FontSize="15"
                                 Foreground="{DynamicResource PrimaryBackgroundColor}"
                                 FontWeight="DemiBold"
                                 Text="Carbohydrates"/>
@@ -242,7 +243,7 @@
                                 Grid.Column="1"
                                 Margin="5"
                                 Grid.Row="1"
-                                FontSize="20"
+                                FontSize="15"
                                 Foreground="{DynamicResource PrimaryBackgroundColor}"
                                 FontWeight="DemiBold"
                                 Text="Proteins"/>
@@ -251,7 +252,7 @@
                                 Grid.Column="2"
                                 Grid.Row="1"
                                 Margin="5"
-                                FontSize="20"
+                                FontSize="15"
                                 Foreground="{DynamicResource PrimaryBackgroundColor}"
                                 FontWeight="DemiBold"
                                 Text="Fats"/>
@@ -260,7 +261,7 @@
                                 Grid.Column="3"
                                 Grid.Row="1"
                                 Margin="5"
-                                FontSize="20"
+                                FontSize="15"
                                 Foreground="{DynamicResource PrimaryBackgroundColor}"
                                 FontWeight="DemiBold"
                                 Text="Calories"/>
@@ -270,42 +271,39 @@
                                 Grid.Column="0"
                                 Margin="5"
                                 Grid.Row="2"
-                                FontSize="20"
+                                FontSize="15"
                                 Foreground="{DynamicResource PrimaryBackgroundColor}"
                                 FontWeight="DemiBold"
                                 Text="{Binding Carbohydrates}"/>
                                         <TextBlock
-                                 x:Name="Proteins"
                                  TextAlignment="Center"
                                 Grid.Column="1"
                                 Margin="5"
                                 Grid.Row="2"
-                                FontSize="20"
+                                FontSize="15"
                                 Foreground="{DynamicResource PrimaryBackgroundColor}"
                                 FontWeight="DemiBold"
                                 Text="{Binding Proteins}"/>
                                         <TextBlock
-                                 x:Name="Fats"
                                  TextAlignment="Center"
                                 Grid.Column="2"
                                 Grid.Row="2"
                                 Margin="5"
-                                FontSize="20"
+                                FontSize="15"
                                 Foreground="{DynamicResource PrimaryBackgroundColor}"
                                 FontWeight="DemiBold"
                                 Text="{Binding Fats}"/>
                                         <TextBlock
-                                x:Name="Calories"
                                  TextAlignment="Center"
                                 Grid.Column="3"
                                 Grid.Row="2"
                                 Margin="5"
-                                FontSize="20"
+                                FontSize="15"
                                 Foreground="{DynamicResource PrimaryBackgroundColor}"
                                 FontWeight="DemiBold"
                                 Text="{Binding Calories}"/>
                                         <Button
-                        Grid.Column="4"
+                                                Grid.Column="4"
                         Grid.Row="1"
                         Content="Add"
                         FontSize="15"
@@ -316,6 +314,19 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </WrapPanel>
+            </Border>
+            <Border
+                    Margin="10"
+                    Background="AntiqueWhite"
+                    CornerRadius="8"
+                SnapsToDevicePixels="True">
+                <Border.Effect>
+                    <DropShadowEffect
+                    ShadowDepth="6"
+                    Opacity="0.3"
+                    BlurRadius="8"/>
+                </Border.Effect>
+                
             </Border>
         </StackPanel>
     </ScrollViewer>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DietPlanner.View;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -22,30 +23,6 @@ namespace DietPlanner.Pages
     /// </summary>
     /// 
 
-    public class ViewModel : INotifyPropertyChanged
-    {
-        private ObservableCollection<Food> _products;
-
-        public ObservableCollection<Food> Products
-        {
-            get { return _products; }
-            set
-            {
-                if (_products != value)
-                {
-                    _products = value;
-                    OnPropertyChanged("Food");
-                }
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-    }
     //ДЛЯ ПРИМЕРА
     public class Food
     {
@@ -69,9 +46,17 @@ namespace DietPlanner.Pages
                 Carbohydrates="13",
                 Fats="14",
                 Proteins="15"
+            },
+             new Food()
+            {
+                Name="Example",
+                Calories="12",
+                Carbohydrates="13",
+                Fats="14",
+                Proteins="15"
             }
             };
-            DataContext = new ViewModel { Products = Foods };
+            DataContext = new SearchListModel { Foods = Foods };
         }
 
     }
