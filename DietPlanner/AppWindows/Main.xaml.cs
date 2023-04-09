@@ -23,6 +23,7 @@ namespace DietPlanner.AppWindows
         public Main()
         {
             InitializeComponent();
+            StatisticButton.IsChecked = true;
         }
 
         #region WINDOW_EVENTS
