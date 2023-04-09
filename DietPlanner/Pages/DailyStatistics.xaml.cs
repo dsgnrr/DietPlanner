@@ -39,48 +39,55 @@ namespace DietPlanner.Pages
             
             string url = $"https://api.spoonacular.com/recipes/complexSearch?apiKey={apiKey}&query={query}";
 
-            
-            HttpClient client = new HttpClient();
-
-            
-            HttpResponseMessage response = await client.GetAsync(url);
-
-            
-            string responseBody = await response.Content.ReadAsStringAsync();
-
-            
-            dynamic data = JsonConvert.DeserializeObject(responseBody);
-
-            
-            dynamic recipe = data.results[0];
-
-           
-            int recipeId = recipe.id;
-
-           
-            url = $"https://api.spoonacular.com/recipes/{recipeId}/nutritionWidget.json?apiKey={apiKey}";
-
-            
-            response = await client.GetAsync(url);
-
-           
-            responseBody = await response.Content.ReadAsStringAsync();
-
-            
-            dynamic nutritionData = JsonConvert.DeserializeObject(responseBody);
-
-            int calories = nutritionData.calories;
+            try
+            {
+                HttpClient client = new HttpClient();
 
 
-            EatenInfo.Text = calories.ToString();
-            
-            string fatString = nutritionData.fat;
-            string carbs = nutritionData.carbs;
-            string protein = nutritionData.protein;
+                HttpResponseMessage response = await client.GetAsync(url);
 
-            FatsInfo.Text = fatString.ToString();
-            CarbohydratesInfo.Text = carbs.ToString();
-            ProteinsInfo.Text = protein.ToString();
+
+                string responseBody = await response.Content.ReadAsStringAsync();
+
+
+                dynamic data = JsonConvert.DeserializeObject(responseBody);
+
+
+                dynamic recipe = data.results[0];
+
+
+                int recipeId = recipe.id;
+
+
+                url = $"https://api.spoonacular.com/recipes/{recipeId}/nutritionWidget.json?apiKey={apiKey}";
+
+
+                response = await client.GetAsync(url);
+
+
+                responseBody = await response.Content.ReadAsStringAsync();
+
+
+                dynamic nutritionData = JsonConvert.DeserializeObject(responseBody);
+
+                int calories = nutritionData.calories;
+
+
+                EatenInfo.Text = calories.ToString();
+
+                string fatString = nutritionData.fat;
+                string carbs = nutritionData.carbs;
+                string protein = nutritionData.protein;
+
+                FatsInfo.Text = fatString.ToString();
+                CarbohydratesInfo.Text = carbs.ToString();
+                ProteinsInfo.Text = protein.ToString();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Search error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
         }
     }
-}
+
