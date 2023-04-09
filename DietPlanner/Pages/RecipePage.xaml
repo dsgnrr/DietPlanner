@@ -6,16 +6,79 @@
       xmlns:local="clr-namespace:DietPlanner.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="600"
-      Title="Progress">
-
-    <Grid Background="AntiqueWhite">
-        <TextBlock
-            Text="Recipe"
-            Foreground="{DynamicResource PrimaryBackgroundColor}"
-            FontSize="50"
-            TextAlignment="Center"/>
-        <TextBox Name="Search" Width="250" Height="30" Margin="0 0 0 200" TextChanged="Search_TextChanged"></TextBox>
-        <StackPanel x:Name="show_recipe" Width="400" Height="250" VerticalAlignment="Bottom"></StackPanel>
-        <Button x:Name="But_Search" Width="30" Height="30" Margin="300 0 0 200" Click="But_Search_Click"></Button>
+      Title="Recipe"
+      Background="AntiqueWhite">
+    <Grid>
+        <!--SearchInterface-->
+        <StackPanel x:Name="SearchInterface">
+            <Border
+            Background="LightGray">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="Search"
+                         Margin="5 5 5 0"
+                         Grid.Column="1"
+                         FontSize="15"
+                         Style="{DynamicResource DefaultTextBox}"
+                         Background="DarkGray"/>
+                    <Button
+                    x:Name="But_Search"
+                    Grid.Column="2"
+                    Margin="5 5 25 0"
+                    Content="Search"
+                    Style="{DynamicResource MaleButtonStyle}"
+                    Click="But_Search_Click"/>
+                    <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    FontSize="8"
+                    Text="search recipes"
+                    FontWeight="DemiBold"
+                    Foreground="{DynamicResource LightBlack}"
+                    TextAlignment="Center"
+                    Margin="0 0 0 5"/>
+                </Grid>
+            </Border>
+            <Border
+                    Margin="10"
+                    Background="{DynamicResource Honeydew}"
+                    CornerRadius="8"
+                SnapsToDevicePixels="True">
+                <Border.Effect>
+                    <DropShadowEffect
+                    ShadowDepth="6"
+                    Opacity="0.3"
+                    BlurRadius="8"/>
+                </Border.Effect>
+                <ScrollViewer>
+                    <StackPanel
+                x:Name="show_recipe">
+                        <TextBlock
+                        x:Name="searchResultsBlock"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    FontSize="20"
+                    Text="Search results"
+                    FontWeight="DemiBold"
+                    Foreground="{DynamicResource LightBlack}"
+                    TextAlignment="Center"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+        </StackPanel>
+        <!--RecipePage-->
     </Grid>
+
+
+    <!--<TextBox Name="Search" Width="250" Height="30" Margin="0 0 0 200" TextChanged="Search_TextChanged"></TextBox>
+        <StackPanel x:Name="show_recipe" Width="400" Height="250" VerticalAlignment="Bottom"></StackPanel>
+        <Button x:Name="But_Search" Width="30" Height="30" Margin="300 0 0 200" Click="But_Search_Click"></Button>-->
 </Page>

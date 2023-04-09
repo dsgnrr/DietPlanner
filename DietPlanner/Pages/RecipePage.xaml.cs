@@ -49,16 +49,23 @@ namespace DietPlanner.Pages
         private readonly string _apiKey = "bf72237be72d44549d0acc3588ce6dfb";
         public RecipePage()
         {
-
             InitializeComponent();
         }
-        
+
+        private Button createSearchResult(string result)
+        {
+            Button button = new Button();
+            button.Style = (Style)FindResource("DefaultButton");
+            button.Margin = new Thickness(5);
+            button.FontSize = 15;
+            button.Content = result;
+            button.Click += new RoutedEventHandler(openRecipe);
+            return button;
+        }
+
         private async void But_Search_Click(object sender, RoutedEventArgs e)
         {
-
-           
             var url = $"https://api.spoonacular.com/recipes/findByIngredients?apiKey={_apiKey}&ingredients={Search.Text}";
-
             try
             {
                 var response = await _client.GetAsync(url);
@@ -66,32 +73,20 @@ namespace DietPlanner.Pages
 
                 var content = await response.Content.ReadAsStringAsync();
                 dynamic data = JsonConvert.DeserializeObject<dynamic>(content);
-
-               
-
-
+                //Console.WriteLine(data);
                 foreach (var missedIngredient in data)
                 {
-                    string tmp = missedIngredient.title;
-                    //string id = missedIngredient.id;
-                    Button button = new Button();
-
-                    
-                    button.Content = tmp;
-
-                    button.Click += Button_Click;
-                    show_recipe.Children.Add(button);
-
+                    string result = missedIngredient.title;
+                    searchResultsBlock.Visibility = Visibility.Collapsed;
+                    show_recipe.Children.Add(createSearchResult(result));
                 }
-                
             }
             catch (HttpRequestException ex)
             {
-                MessageBox.Show($"Error: {ex.Message}");
+                MessageBox.Show(ex.Message, "Search error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
         }
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private async void openRecipe(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
             string buttonText = button.Content.ToString();
@@ -136,10 +131,6 @@ namespace DietPlanner.Pages
                     }
                 }
             }
-        }
-        private void Search_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            
         }
     }
 
