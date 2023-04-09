@@ -52,14 +52,13 @@ namespace DietPlanner.Pages
             InitializeComponent();
         }
 
-        private Button createSearchResult(string result,string id)
+        private Button createSearchResult(string result)
         {
             Button button = new Button();
             button.Style = (Style)FindResource("DefaultButton");
             button.Margin = new Thickness(5);
             button.FontSize = 15;
             button.Content = result;
-            button.Name = "_" + id;
             button.Click += new RoutedEventHandler(openRecipe);
             return button;
         }
@@ -78,9 +77,8 @@ namespace DietPlanner.Pages
                 foreach (var missedIngredient in data)
                 {
                     string result = missedIngredient.title;
-                    string id = missedIngredient.id;
                     searchResultsBlock.Visibility = Visibility.Collapsed;
-                    show_recipe.Children.Add(createSearchResult(result, id));
+                    show_recipe.Children.Add(createSearchResult(result));
                 }
             }
             catch (HttpRequestException ex)
@@ -92,7 +90,7 @@ namespace DietPlanner.Pages
         {
             Button button = (Button)sender;
             string buttonText = button.Name;
-            RecipeNavigate.Navigate(new RecipePage() { owner = this,id=button.Name.Substring(1) });
+            RecipeNavigate.Navigate(new RecipePage() { owner = this});
         }
     }
 }
