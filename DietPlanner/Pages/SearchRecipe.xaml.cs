@@ -42,12 +42,12 @@ namespace DietPlanner.Pages
         public int Id { get; set; }
         public string Name { get; set; }
     }
-    public partial class RecipePage : Page
+    public partial class SearchRecipe : Page
     {
         private readonly HttpClient _client = new HttpClient();
 
         private readonly string _apiKey = "bf72237be72d44549d0acc3588ce6dfb";
-        public RecipePage()
+        public SearchRecipe()
         {
             InitializeComponent();
         }

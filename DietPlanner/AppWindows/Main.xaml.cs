@@ -61,7 +61,7 @@ namespace DietPlanner.AppWindows
         private void DietsButton_Click(object sender, RoutedEventArgs e)
         {
             NavigateFrame.Content = null;
-            NavigateFrame.Navigate(new RecipePage());
+            NavigateFrame.Navigate(new SearchRecipe());
         }
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
