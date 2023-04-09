@@ -42,7 +42,7 @@ namespace DietPlanner.Pages
             string apiKey = "5330ed77c83a4ecf965e38cdb7b80ac3";
 
             using var client = new HttpClient();
-            var id = 715538; // замените на реальный идентификатор рецепта
+            var id = 715538; 
             var response = await client.GetAsync($"https://api.spoonacular.com/recipes/{id}/information?apiKey={apiKey}");
             var content = await response.Content.ReadAsStringAsync();
             var recipe = JObject.Parse(content);
@@ -58,13 +58,12 @@ namespace DietPlanner.Pages
             string url = $"https://api.spoonacular.com/recipes/{id}/analyzedInstructions?apiKey={apiKey}";
             using var _client = new HttpClient();
 
-            // Execute the API request and get the response as a JSON string
+            
             string json = await _client.GetStringAsync(url);
 
-            // Deserialize the JSON string into an object of type List<RecipeInstructions>
             List<RecipeInstructions> instructions = JsonConvert.DeserializeObject<List<RecipeInstructions>>(json);
 
-            // Display the recipe name and the instructions
+            
             //MessageBox.Show($"Instructions for {instructions[0].Name}:");
             foreach (var step in instructions[0].Steps)
             {
